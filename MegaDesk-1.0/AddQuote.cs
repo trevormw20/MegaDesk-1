@@ -13,7 +13,7 @@ namespace MegaDesk_1._0
     public partial class AddQuote : Form
     {
         Desk desk = new Desk();
-        DeskQuote deskQuote = new DeskQuote();
+        //DeskQuote deskQuote = new DeskQuote();
         public AddQuote()
         {
             InitializeComponent();
@@ -30,9 +30,12 @@ namespace MegaDesk_1._0
         {
             //set desk info
             setQuoteInfo();
-            deskQuote.SetQuotePrice();
+            //deskQuote.SetQuotePrice();
+            //string test = "working";
 
-            DisplayQuote displayQuote = new DisplayQuote();
+            DisplayQuote displayQuote = new DisplayQuote(desk);
+            //displayQuote.test = test;
+            //displayQuote.desk = desk;
             displayQuote.Tag = this;
             displayQuote.Show(this);
             Hide();
@@ -68,7 +71,17 @@ namespace MegaDesk_1._0
             if (WidthBox.Value > 96 || WidthBox.Value < 24)
             {
                 MessageBox.Show("The desk width needs to be between 24 and 96 inches");
-                WidthBox.BackColor = Color.Red;
+
+                //not a very good case but here is my try and catch
+                try
+                {
+                    WidthBox.BackColor = Color.Red;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
             }
             else
                 WidthBox.BackColor = Color.White;
@@ -76,7 +89,7 @@ namespace MegaDesk_1._0
 
         private void DepthBox_ValueChanged(object sender, EventArgs e)
         {
-            if (DepthBox.Value > 48 && DepthBox.Value < 12)
+            if (DepthBox.Value > 48 || DepthBox.Value < 12)
             {
                 MessageBox.Show("The desk depth needs to be between 12 and 48 inches");
                 DepthBox.BackColor = Color.Red;
@@ -96,9 +109,10 @@ namespace MegaDesk_1._0
             desk.setName(FirstNameBox.ToString(), LastNameBox.ToString());
             desk.SetWidth((int)WidthBox.Value);
             desk.SetDepth((int)DepthBox.Value);
-            desk.SetDrawers(DrawersBox.SelectedIndex + 1);
+            desk.SetDrawers(DrawersBox.SelectedIndex);
             desk.SetMaterial(MaterialBox.SelectedIndex);
             desk.SetRushOrder(RushBox.SelectedIndex);
+            desk.SetDate(getDate());
             /*FirstNameSave = FirstName.value;
             LastNameSave = LastName.value;
             WidthSave = WidthBox.Value;
@@ -149,6 +163,6 @@ namespace MegaDesk_1._0
                 int lengthOfAnswer = DepthBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
             }
-        }        
+        }
     }
 }

@@ -7,31 +7,29 @@ using System.Threading.Tasks;
 namespace MegaDesk_1._0
 {
     //This class will define the attributes of a quote including Desk, rush days, customer name, and quote date. This class will also hold the logic in determining the desk quote total.
-    class DeskQuote
+    public class DeskQuote
     {
         private int QuotePrice;
         private string QuoteName;
-        Desk desk;
+        int Area;
+        int WidthSave;
+        int DepthSave;
+        int DrawersSave;
+        int MaterialSave;
+        int RushOrderSave;
         //quote date
 
-
-        private int CalculateQuote()
+        public DeskQuote(Desk desk)
         {
-            //temp
-            int Area;
-            int WidthSave;
-            int DepthSave;
-            int DrawersSave;
-            int MaterialSave;
-            int RushOrderSave;
-            //temp
-
             WidthSave = desk.getWidth();
             DepthSave = desk.getDepth();
             DrawersSave = desk.getDrawers();
             MaterialSave = desk.getMaterial();
             RushOrderSave = desk.getRush();
+        }
 
+        private int CalculateQuote()
+        {
             int Total = 200;
 
             Area = WidthSave * DepthSave;

@@ -9,7 +9,7 @@ namespace MegaDesk_1._0
     enum DesktopMaterial { Oak = 200, Laminate = 100, Pine = 50, Rosewood = 300, Veneer = 125};
 
     //This class will define the attributes of the desk object with width, depth, number of drawers, and the surface material.
-    class Desk
+    public class Desk
     {
         private string Name;
         private int DeskWidth;
@@ -17,6 +17,9 @@ namespace MegaDesk_1._0
         private int DeskDrawers;
         private int DeskMaterial;
         private int RushOrder;
+        private int DepthMaximum = 48;
+        private int DepthMinimum = 12;
+        private string QuoteDate;
 
         public void setName(string First, string Last)
         {
@@ -41,6 +44,11 @@ namespace MegaDesk_1._0
         public void SetRushOrder(int Rush)
         {
             RushOrder = Rush;
+        }
+
+        public void SetDate(string Date)
+        {
+            QuoteDate = Date;
         }
 
         public string getName()
@@ -68,6 +76,10 @@ namespace MegaDesk_1._0
         public int getRush()
         {
             return RushOrder;
+        }
+        public string getQuoteDate()
+        {
+            return QuoteDate;
         }
     }
 }
