@@ -162,10 +162,10 @@ namespace MegaDesk_1._0
             // 
             // Return
             // 
-            this.Return.Location = new System.Drawing.Point(178, 405);
+            this.Return.Location = new System.Drawing.Point(180, 394);
             this.Return.Name = "Return";
             this.Return.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Return.Size = new System.Drawing.Size(75, 23);
+            this.Return.Size = new System.Drawing.Size(119, 35);
             this.Return.TabIndex = 11;
             this.Return.Text = "Return";
             this.Return.UseVisualStyleBackColor = true;

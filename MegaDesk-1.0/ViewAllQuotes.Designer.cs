@@ -34,9 +34,9 @@ namespace MegaDesk_1._0
             // 
             // Return
             // 
-            this.Return.Location = new System.Drawing.Point(217, 384);
+            this.Return.Location = new System.Drawing.Point(311, 367);
             this.Return.Name = "Return";
-            this.Return.Size = new System.Drawing.Size(75, 23);
+            this.Return.Size = new System.Drawing.Size(161, 53);
             this.Return.TabIndex = 0;
             this.Return.Text = "Return";
             this.Return.UseVisualStyleBackColor = true;
